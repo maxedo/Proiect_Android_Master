@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Login_Fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:gravity="center"
+
+    android:orientation="vertical"
+    android:background="@color/cardview_shadow_start_color">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/login_cardview"
+        style="@style/MyCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="25dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/login_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:hint="Username"
+                style="@style/MyEditText"
+                android:id="@+id/username_field_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:paddingVertical="2dp"
+                android:layout_marginHorizontal="45dp"
+                android:inputType="text"
+                />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:hint="Password"
+                style="@style/MyEditText"
+                android:id="@+id/password_field_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="45dp"
+                android:inputType="textPassword"
+                />
+            <Button
+                android:id="@+id/button_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:layout_marginHorizontal="100dp"
+                android:text="Login"
+                />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_below="@+id/login_cardview"
+        android:id="@+id/transfer_to_register_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="45dp"
+        android:text="Not yet registered? Sign Up Now!"
+        />
+
+</RelativeLayout>
