@@ -13,6 +13,10 @@
         android:theme="@style/Theme.ProiectAndroidMaster"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false"
+            android:theme="@style/Theme.ProiectAndroidMaster" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
