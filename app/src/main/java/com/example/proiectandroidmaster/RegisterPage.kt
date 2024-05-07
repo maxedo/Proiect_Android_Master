@@ -29,7 +29,7 @@ class RegisterPage : Fragment() {
 
         binding.buttonRegister.setOnClickListener {
             val email = binding.emailFieldRegister.text.toString().trim()
-            val password = binding.emailFieldRegister.text.toString().trim()
+            val password = binding.passwordFieldRegister.text.toString().trim()
             registerUser(email, password)
         }
 

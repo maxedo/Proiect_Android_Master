@@ -1,5 +1,6 @@
 package com.example.proiectandroidmaster
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -49,6 +50,9 @@ class LoginPage : Fragment() {
                     if (task.isSuccessful) {
                         // Login successful
                         Toast.makeText(requireContext(), "Login successful!", Toast.LENGTH_SHORT).show()
+                        val currentActivity = requireActivity()
+                        val intent = Intent(currentActivity, DashboardActivity::class.java).apply {}
+                        currentActivity.startActivity(intent)
                         // Optionally, navigate to a different screen
                     } else {
                         // Login failed
