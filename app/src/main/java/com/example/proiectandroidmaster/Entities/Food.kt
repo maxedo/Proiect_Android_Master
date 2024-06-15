@@ -11,6 +11,7 @@ data class Food(
     val foodCategory: String,
     val name: String,
     val calories: Int,
+    val proteins: Int,
     val date: String
 
 )
