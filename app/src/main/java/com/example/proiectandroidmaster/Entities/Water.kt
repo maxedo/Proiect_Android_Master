@@ -1,13 +1,14 @@
 package com.example.proiectandroidmaster.Entities
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.Date
 
 
-
-@Entity(tableName = "water_table")
+@Entity
 data class Water(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
     val userId: Int,
     val value:Int,
-    val date:String
+    val date:Date
 )

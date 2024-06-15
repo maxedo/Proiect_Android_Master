@@ -16,6 +16,14 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments(
+                    mapOf("room.schemaLocation" to "$projectDir/schemas")
+                )
+            }
+        }
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -66,8 +74,21 @@ dependencies {
 
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:2.5.0")
     // To use Kotlin annotation processing tool (kapt)
     kapt("androidx.room:room-compiler:$room_version")
 
+}
+
+
+tasks.register("createSchemaDir") {
+    doLast {
+        val schemaDir = file("$projectDir/schemas")
+        if (!schemaDir.exists()) {
+            schemaDir.mkdirs()
+        }
+    }
+}
+
+tasks.withType<JavaCompile> {
+    dependsOn("createSchemaDir")
 }

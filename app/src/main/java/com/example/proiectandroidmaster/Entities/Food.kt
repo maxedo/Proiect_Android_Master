@@ -4,14 +4,15 @@ import androidx.room.PrimaryKey
 import java.util.Date
 
 
-@Entity(tableName = "food_table")
+@Entity
 data class Food(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
     val userId: Int,
     val foodCategory: String,
     val name: String,
     val calories: Int,
     val proteins: Int,
-    val date: String
+    val date: Date
 
 )
