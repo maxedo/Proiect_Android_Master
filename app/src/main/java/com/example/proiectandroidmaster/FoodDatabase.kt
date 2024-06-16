@@ -1,21 +1,34 @@
-package com.example.proiectandroidmaster
+package com.example.proiectandroidmaster.localdb
+
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import com.example.proiectandroidmaster.DAO.FoodDao
-import com.example.proiectandroidmaster.DAO.WaterDao
-import com.example.proiectandroidmaster.Entities.Converters
 import com.example.proiectandroidmaster.Entities.Food
-import com.example.proiectandroidmaster.Entities.Water
 
-@Database(entities = [Food::class,Water::class], version = 1)
-@TypeConverters(Converters::class)
+@Database(entities = [Food::class], version = 3, exportSchema = false)
 abstract class FoodDatabase : RoomDatabase() {
-
-    companion object{
-        const val NAME="Food_DB"
-    }
     abstract fun foodDao(): FoodDao
 
-    abstract fun waterDao():WaterDao
+    companion object {
+        @Volatile
+        private var INSTANCE: FoodDatabase? = null
+
+        const val NAME = "foodb" // Define the database name here
+
+        fun getInstance(context: Context): FoodDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    FoodDatabase::class.java,
+                    NAME // Use the defined database name
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
+                INSTANCE = instance
+                instance
+            }
+        }
+    }
 }

@@ -8,8 +8,9 @@ import com.example.proiectandroidmaster.Entities.Food
 
 @Dao
 interface FoodDao {
-    @Query("Select * from Food")
-    fun getAllFood(): LiveData<List<Food>>
+
+    @Query("SELECT * FROM food WHERE email = :email")
+    fun getFoodsByEmail(email: String): LiveData<List<Food>>
 
     @Insert
     fun addFood(food : Food)

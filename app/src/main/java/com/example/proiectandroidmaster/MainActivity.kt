@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.proiectandroidmaster.databinding.ActivityMainBinding
 import com.google.firebase.FirebaseApp
 import androidx.room.Room
+import com.example.proiectandroidmaster.localdb.FoodDatabase
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,12 +33,12 @@ class MainActivity : AppCompatActivity() {
         val userEmail = sharedPreferences.getString("userEmail", null)
 
         if (userEmail != null) {
-            // aici gen intra cand deschide app daca e logat
+            // Open DashboardActivity if user is logged in
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
             finish() // Close MainActivity
         } else {
-            // aici o sa intre *teoretic* on first open cand nu e logat sau on first open dupa ce se delogheaza
+            // Open LoginPage fragment if user is not logged in
             supportFragmentManager.beginTransaction()
                 .replace(R.id.main, LoginPage())
                 .commit()

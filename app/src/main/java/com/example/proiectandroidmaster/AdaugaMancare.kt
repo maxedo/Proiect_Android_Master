@@ -14,7 +14,7 @@ import com.example.proiectandroidmaster.databinding.ActivityMancareBinding
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -73,7 +73,7 @@ class AdaugaMancare : AppCompatActivity() {
                             foodCategory = "exampleCategory",
                             name = firstItem.name,
                             calories = firstItem.calories,
-                            proteins = firstItem.protein_g
+                            protein = firstItem.protein_g
                         )
                     } else {
                         Log.d(TAG, "No nutrition items found")
@@ -89,8 +89,8 @@ class AdaugaMancare : AppCompatActivity() {
         })
     }
 
-    private fun postFoodToLocalDb(email: String, foodCategory: String, name: String, calories: Double, proteins: Double) {
-        Log.d(TAG, "Posting food to local DB: email=$email, foodCategory=$foodCategory, name=$name, calories=$calories, proteins=$proteins")
+    private fun postFoodToLocalDb(email: String, foodCategory: String, name: String, calories: Double, protein: Double) {
+        Log.d(TAG, "Posting food to local DB: email=$email, foodCategory=$foodCategory, name=$name, calories=$calories, proteins=$protein")
         val client = OkHttpClient()
 
         val json = JSONObject().apply {
@@ -98,11 +98,11 @@ class AdaugaMancare : AppCompatActivity() {
             put("FoodCategory", foodCategory)
             put("Name", name)
             put("Calories", calories)
-            put("Protein", proteins)
+            put("Protein", protein)
         }
 
         val mediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
-        val body = RequestBody.create(mediaType, json.toString())
+        val body = json.toString().toRequestBody(mediaType)
         Log.d(TAG,body.toString())
         //10.0.2.2 pt emulator
         val request = Request.Builder()
