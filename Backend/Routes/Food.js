@@ -16,7 +16,7 @@ router.post("/Food",async(req,res)=>{
 })
 
 
-router.get("/Food/:Id",async(req,res)=>{
+router.get("/FoodCurrent/:Email",async(req,res)=>{
     try{
         const [query]=await db.execute("SELECT * FROM FOOD WHERE Email=?",[req.params.Id])
         res.status(200).json(query);

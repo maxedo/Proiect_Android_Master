@@ -15,7 +15,7 @@ router.post("/Water",async(req,res)=>{
     }
 })
 
-router.get("/Water/:Id",async(req,res)=>{
+router.get("/Water/:Email",async(req,res)=>{
     try{
         const [query]=await db.execute("SELECT SUM(VALUE) AS TOTAL_WATER FROM WATER ");
         res.status(200).json(query)
