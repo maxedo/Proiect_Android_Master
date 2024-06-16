@@ -1,5 +1,6 @@
 package com.example.proiectandroidmaster
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -49,11 +50,11 @@ class LoginPage : Fragment() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         // Login successful
+                        saveUserToSharedPreferences(email)
                         Toast.makeText(requireContext(), "Login successful!", Toast.LENGTH_SHORT).show()
                         val currentActivity = requireActivity()
                         val intent = Intent(currentActivity, DashboardActivity::class.java).apply {}
                         currentActivity.startActivity(intent)
-                        // Optionally, navigate to a different screen
                     } else {
                         // Login failed
                         val message = task.exception?.message ?: "Unknown error"
@@ -63,6 +64,13 @@ class LoginPage : Fragment() {
         } else {
             Toast.makeText(requireContext(), "Please enter both email and password.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun saveUserToSharedPreferences(email: String) {
+        val sharedPreferences = requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("userEmail", email)
+        editor.apply()
     }
 
     override fun onDestroyView() {
