@@ -8,7 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import android.widget.ArrayAdapter
 import com.example.proiectandroidmaster.databinding.ActivityMancareBinding
 
-class activity_mancare : AppCompatActivity() {
+class AdaugaMancare : AppCompatActivity() {
 
     private lateinit var binding: ActivityMancareBinding
 
@@ -23,6 +23,12 @@ class activity_mancare : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val apiString:String=binding.gramajEditText.toString()+binding.unitSpinner.toString()+" "+binding.numeleMancariiEditText.toString()
+
+        binding.finalizareButton.setOnClickListener {
+
         }
 
         ArrayAdapter.createFromResource(

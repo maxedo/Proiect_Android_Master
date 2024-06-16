@@ -1,6 +1,7 @@
 package com.example.proiectandroidmaster
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,10 @@ class DashboardActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        binding.buttonProgressBar.setOnClickListener {
+            val intent = Intent(this,AdaugaMancare ::class.java)
+            startActivity(intent)
         }
 
         loadCalories()
