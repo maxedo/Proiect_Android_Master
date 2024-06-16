@@ -98,12 +98,12 @@ class AdaugaMancare : AppCompatActivity() {
             put("FoodCategory", foodCategory)
             put("Name", name)
             put("Calories", calories)
-            put("Proteins", proteins)
+            put("Protein", proteins)
         }
 
         val mediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
         val body = RequestBody.create(mediaType, json.toString())
-
+        Log.d(TAG,body.toString())
         //10.0.2.2 pt emulator
         val request = Request.Builder()
             .url("http://10.0.2.2:5000/Food")

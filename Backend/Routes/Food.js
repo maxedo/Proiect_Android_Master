@@ -7,6 +7,7 @@ const db=Data.getInstance();
 router.post("/Food",async(req,res)=>{
     const {Email,FoodCategory,Name,Calories,Protein}=req.body;
     try{
+        console.log(Email+" "+FoodCategory+" "+Name+" "+Calories+" "+Protein)
         const [query]=await db.execute("INSERT INTO FOOD(Email,FoodCategory,Name,Calories,Protein) VALUES(?,?,?,?,?)",[Email,FoodCategory,Name,Calories,Protein]);
         res.status(200).json({Message:"Operatia a avut succes"})
     }catch(err){
