@@ -25,57 +25,108 @@
 
         />
 
-
     <TextView
         android:id="@+id/waterText"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="40dp"
         android:text="Water"
-        android:textColor="@color/white"
-
         android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@id/button_progressBar"
+        android:textColor="@color/white"
+        android:layout_marginTop="40dp"
+
         app:layout_constraintStart_toStartOf="@id/progressBar"
+        app:layout_constraintBottom_toTopOf="@id/button_progressBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        />
+
+    <TextView
+        android:id="@+id/breakfastText"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Breakfast"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="120dp"
+
+        app:layout_constraintStart_toEndOf="@id/button_progressBar"
+        app:layout_constraintEnd_toEndOf="@id/button_progressBar"
+        app:layout_constraintBottom_toTopOf="@id/button_progressBar"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/lunchText"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Lunch"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+
+        app:layout_constraintBottom_toTopOf="@id/button_progressBar"
+        app:layout_constraintEnd_toEndOf="@id/button_progressBar"
+        app:layout_constraintHorizontal_bias="0.314"
+        app:layout_constraintStart_toEndOf="@id/button_progressBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.501" />
+
+    <TextView
+        android:id="@+id/dinnerText"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:text="Dinner"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="200dp"
+
+        app:layout_constraintStart_toEndOf="@id/button_progressBar"
+        app:layout_constraintEnd_toEndOf="@id/button_progressBar"
+        app:layout_constraintBottom_toTopOf="@id/button_progressBar"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
 
     <TextView
         android:id="@+id/targetCaloriesText"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="420dp"
         android:text="Target calories:"
         android:textColor="@color/white"
         android:textSize="25dp"
 
-        app:layout_constraintBottom_toTopOf="@id/button_progressBar"
+       app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.402"
-        app:layout_constraintStart_toStartOf="@id/progressBar"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/currentCaloriesText"
         app:layout_constraintVertical_bias="0.24" />
 
     <TextView
         android:id="@+id/currentCaloriesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="420dp"
         android:text="Current calories: "
         android:textColor="@color/white"
         android:textSize="25dp"
-
-        app:layout_constraintBottom_toTopOf="@id/button_progressBar"
+        app:layout_constraintTop_toBottomOf="@id/targetCaloriesText"
+        app:layout_constraintBottom_toTopOf="@id/progressBar"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@id/progressBar"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.81" />
 
+    <TextView
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:text="Current calories:"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="-600dp"
+        android:layout_marginRight="30dp"
 
+        app:layout_constraintStart_toStartOf="@id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_progressBar"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
 
     <TextView
@@ -138,10 +189,43 @@
         app:layout_constraintEnd_toEndOf="@id/waterText" />
 
     <TextView
+        android:id="@+id/breakfastValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="0"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/breakfastText"
+        app:layout_constraintStart_toStartOf="@id/breakfastText"
+        app:layout_constraintEnd_toEndOf="@id/breakfastText" />
+
+    <TextView
+        android:id="@+id/lunchValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="0"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/lunchText"
+        app:layout_constraintStart_toStartOf="@id/lunchText"
+        app:layout_constraintEnd_toEndOf="@id/lunchText" />
+
+    <TextView
+        android:id="@+id/dinnerValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:text="0"
+        app:layout_constraintTop_toBottomOf="@id/dinnerText"
+        app:layout_constraintStart_toStartOf="@id/dinnerText"
+        app:layout_constraintEnd_toEndOf="@id/dinnerText" />
+
+    <TextView
         android:id="@+id/targetValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+
         android:textColor="@color/white"
         android:textSize="25dp"
         app:layout_constraintStart_toEndOf="@id/targetCaloriesText"
@@ -151,7 +235,7 @@
         android:id="@+id/currentValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+
         android:textColor="@color/white"
         android:textSize="25dp"
         app:layout_constraintStart_toEndOf="@id/currentCaloriesText"
