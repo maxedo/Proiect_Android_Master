@@ -16,6 +16,17 @@ router.post("/Food",async(req,res)=>{
 })
 
 
+router.get("/FoodCurrent/:Email",async(req,res)=>{
+    try{
+        const [query]=await db.execute("SELECT SUM(Calories) as current_calories FROM Food WHERE EMAIL=? AND DOC=CURDATE()",[req.params.Email]);
+        res.status(200).json(query);
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err)
+    }
+})
+
+
 router.get("/Food/:Email",async(req,res)=>{
     try{
         const [query]=await db.execute("SELECT * FROM FOOD WHERE Email=? AND DOC=CURDATE()",[req.params.Email])

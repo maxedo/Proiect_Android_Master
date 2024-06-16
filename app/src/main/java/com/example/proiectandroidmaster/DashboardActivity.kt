@@ -51,8 +51,8 @@ class DashboardActivity : AppCompatActivity() {
         val targetCalories = sharedPreferences.getInt("targetCalories", 0)
         val currentCalories = sharedPreferences.getInt("currentCalories", 0)
 
-        binding.targetCaloriesText.text = "Target calories: $targetCalories"
-        binding.currentCaloriesText.text = "Current calories: $currentCalories"
+        binding.targetValue.text = "$targetCalories"
+        binding.currentValue.text = "$currentCalories"
     }
 //cand schimbam target calories sa l puna in shared, n am idee momentan cum, popup sau cv, vdm
     private fun saveTargetCalories(calories: Int) {
@@ -61,7 +61,7 @@ class DashboardActivity : AppCompatActivity() {
         editor.putInt("targetCalories", calories)
         editor.apply()
 
-        binding.targetCaloriesText.text = "Target calories: $calories"
+        binding.targetValue.text = "$calories"
     }
 //same ca mai sus
     private fun saveCurrentCalories(calories: Int) {

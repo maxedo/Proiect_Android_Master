@@ -6,7 +6,6 @@ async function createTable(){
         await db.query(`CREATE TABLE IF NOT EXISTS FOOD(
             Id INT AUTO_INCREMENT PRIMARY KEY,
             Email VARCHAR(250),
-            FoodCategory VARCHAR(250),
             Name VARCHAR(250),
             Calories INT,
             Protein INT,
