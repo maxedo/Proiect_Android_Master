@@ -5,9 +5,9 @@ const db=Data.getInstance();
 
 
 router.post("/Food",async(req,res)=>{
-    const {UserId,FoodCategory,Name,Calories,Proteins}=req.body;
+    const {Email,FoodCategory,Name,Calories,Proteins}=req.body;
     try{
-        const [query]=await db.execute("INSERT INTO FOOD(UserId,FoodCategory,Name,Calories,Proteins,DOC) VALUES(?,?,?,?,?,CURDATE())",[UserId,FoodCategory,Name,Calories,Proteins,DOC]);
+        const [query]=await db.execute("INSERT INTO FOOD(Email,FoodCategory,Name,Calories,Proteins,DOC) VALUES(?,?,?,?,?,CURDATE())",[Email,FoodCategory,Name,Calories,Proteins,DOC]);
         res.status(200).json({Message:"Operatia a avut succes"})
     }catch(err){
         console.log(err);
@@ -16,9 +16,9 @@ router.post("/Food",async(req,res)=>{
 })
 
 
-router.get("/Food/:Id",async(req,res)=>{
+router.get("/Food/:Email",async(req,res)=>{
     try{
-        const [query]=await db.execute("SELECT * FROM FOOD WHERE UserId=? AND DOC=CURDATE()",[req.params.Id])
+        const [query]=await db.execute("SELECT * FROM FOOD WHERE Email=? AND DOC=CURDATE()",[req.params.Email])
         res.status(200).json(query);
     }catch(err){
         console.log(err);

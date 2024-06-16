@@ -5,7 +5,7 @@ async function createTable(){
     try{
         await db.query(`CREATE TABLE IF NOT EXISTS FOOD(
             Id INT AUTO_INCREMENT PRIMARY KEY,
-            UserId VARCHAR(250),
+            Email VARCHAR(250),
             FoodCategory VARCHAR(250),
             Name VARCHAR(250),
             Calories INT,
@@ -16,7 +16,7 @@ async function createTable(){
 
         await db.query(`CREATE TABLE IF NOT EXISTS WATER(
                 Id INT AUTO_INCREMENT PRIMARY KEY,
-                UserId VARCHAR(250),
+                Email VARCHAR(250),
                 Value INT,
                 DOC DATE
             )`)
