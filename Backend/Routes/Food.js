@@ -27,6 +27,16 @@ router.get("/FoodCurrent/:Email", async (req, res) => {
     }
 });
 
+router.post("/FoodCurrentValue/:Email",async(req,res)=>{
+    try{
+        const [query]=await db.execute("SELECT SUM(Calories) as current_calories FROM FOOD WHERE Email=?",[req.params.Email])
+        res.status(200).json(query);
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
 
 router.delete("/Food/:Id",async(req,res)=>{
     try{
