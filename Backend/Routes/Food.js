@@ -17,15 +17,15 @@ router.post("/Food",async(req,res)=>{
 })
 
 
-router.get("/FoodCurrent/:Email",async(req,res)=>{
-    try{
-        const [query]=await db.execute("SELECT * FROM FOOD WHERE Email=?",[req.params.Id])
+router.get("/FoodCurrent/:Email", async (req, res) => {
+    try {
+        const [query] = await db.execute("SELECT * FROM FOOD WHERE Email = ?", [req.params.Email]);
         res.status(200).json(query);
-    }catch(err){
+    } catch (err) {
         console.log(err);
-        res.status(500).json(err)
+        res.status(500).json(err);
     }
-})
+});
 
 
 router.delete("/Food/:Id",async(req,res)=>{

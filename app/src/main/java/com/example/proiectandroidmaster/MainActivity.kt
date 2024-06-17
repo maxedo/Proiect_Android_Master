@@ -5,9 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proiectandroidmaster.databinding.ActivityMainBinding
-import com.google.firebase.FirebaseApp
-import androidx.room.Room
 import com.example.proiectandroidmaster.localdb.FoodDatabase
+import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,13 +18,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        database = Room.databaseBuilder(
-            applicationContext,
-            FoodDatabase::class.java,
-            FoodDatabase.NAME
-        ).build()
-
         FirebaseApp.initializeApp(this)
+
+        database = FoodDatabase.getInstance(applicationContext)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

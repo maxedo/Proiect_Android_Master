@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proiectandroidmaster.DAO.NutritionResponse
-import com.example.proiectandroidmaster.Entities.RetrofitInstance
 import com.example.proiectandroidmaster.databinding.ActivityMancareBinding
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
