@@ -18,7 +18,7 @@ class DashboardActivity : AppCompatActivity() {
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.bottomNavigation.setOnNavigationItemSelectedListener(bottomNavListener)
+        binding.bottomnavigation.setOnNavigationItemSelectedListener(bottomNavListener)
 
         // Load the default fragment
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, DashboardFragment()).commit()

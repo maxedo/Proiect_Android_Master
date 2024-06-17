@@ -14,6 +14,7 @@
         android:layout_height="200dp"
         android:background="#ffffff"
         android:scaleType="centerCrop"
+        app:srcCompat="@drawable/food"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -83,6 +84,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/numele_mancarii_edit_text" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
