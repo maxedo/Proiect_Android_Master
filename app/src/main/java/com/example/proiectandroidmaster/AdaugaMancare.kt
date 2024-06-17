@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -43,6 +44,7 @@ class AdaugaMancare : AppCompatActivity() {
             val apiString = "${binding.gramajEditText.text}${binding.unitSpinner.selectedItem} ${binding.numeleMancariiEditText.text}"
             Log.d(TAG, "API String: $apiString")
             fetchNutritionInfo(apiString)
+            Toast.makeText(this, "The product was added to the list", Toast.LENGTH_SHORT).show()
         }
 
         ArrayAdapter.createFromResource(
