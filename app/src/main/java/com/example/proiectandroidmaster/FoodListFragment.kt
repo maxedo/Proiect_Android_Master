@@ -56,7 +56,7 @@ class FoodListFragment : Fragment() {
                     foodDatabase.foodDao().getFoodsByEmail(email).value
                 }
 
-                if (foods != null && foods.isNotEmpty()) {
+                if (!foods.isNullOrEmpty()) {
                     Log.d("FoodListFragment", "Foods found: ${foods.size}")
                     foodAdapter.updateFoods(foods)
                 } else {
